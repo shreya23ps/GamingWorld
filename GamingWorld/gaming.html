@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup and Login Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('images/background3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: rgba(92, 77, 179, 0.6);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            width: 500px;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #000000;
+            font-family: 'Copperplate Gothic Light';
+        }
+
+        .form-container form {
+            display: none;
+        }
+
+        .form-container form.active {
+            display: block;
+        }
+
+        .form-container .input-container {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .form-container .input-container input {
+            width: 80%;
+            padding: 15px 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container .input-container i {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #777;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .toggle-btn {
+            margin-top: 20px;
+            color: #4ca3ff; 
+            cursor: pointer;
+            font-size: 16px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 id="form-title">Login</h2>
+
+        <!-- Login Form -->
+        <form id="login-form" class="active">
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-container">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signup-form">
+            <div class="input-container">
+                <i class="fas fa-user-alt"></i>
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-container">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="input-container">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <div class="input-container">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm Password" required>
+            </div>
+            <button type="submit">Signup</button>
+        </form>
+
+        <div class="toggle-btn" onclick="toggleForm()">Switch to Signup</div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const signupForm = document.getElementById('signup-form');
+            const loginForm = document.getElementById('login-form');
+            const formTitle = document.getElementById('form-title');
+            const toggleBtn = document.querySelector('.toggle-btn');
+
+            if (loginForm.classList.contains('active')) {
+                loginForm.classList.remove('active');
+                signupForm.classList.add('active');
+                formTitle.textContent = 'Signup';
+                toggleBtn.textContent = 'Switch to Login';
+            } else {
+                signupForm.classList.remove('active');
+                loginForm.classList.add('active');
+                formTitle.textContent = 'Login';
+                toggleBtn.textContent = 'Switch to Signup';
+            }
+        }
+    </script>
+</body>
+</html>
